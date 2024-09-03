@@ -5,6 +5,64 @@
     box-sizing: border-box;
 }
 
+/* Stili per il corpo e il contenitore principale */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#placecard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+}
+
+/* Stili per i segnaposto */
+.placecard {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(25% - 20px);
+    box-sizing: border-box;
+}
+
+/* Media queries per la responsività */
+@media (max-width: 1200px) {
+    .placecard {
+        flex-basis: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .placecard {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .placecard {
+        flex-basis: 100%;
+    }
+}
+
+/* Stili aggiuntivi per le sezioni */
+.section-title {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 /* Stili per il footer */
 @keyframes fadeInUp {
     from {

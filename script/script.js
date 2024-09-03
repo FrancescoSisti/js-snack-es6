@@ -95,4 +95,61 @@ placecards.forEach(placecard => {
 
 /*------------------------------------------------------------------------------------------*/
 
+// Elenco degli studenti
+const students = [
+    { id: 213, name: 'Marco della Rovere', grades: 78 },
+    { id: 110, name: 'Paola Cortellessa', grades: 96 },
+    { id: 250, name: 'Andrea Mantegna', grades: 48 },
+    { id: 145, name: 'Gaia Borromini', grades: 74 },
+    { id: 196, name: 'Luigi Grimaldello', grades: 68 },
+    { id: 102, name: 'Piero della Francesca', grades: 50 },
+    { id: 120, name: 'Francesca da Polenta', grades: 84 }
+];
+
+// Funzione per creare un elemento div con una classe
+function createElement(content, className) {
+    const element = document.createElement('div');
+    element.textContent = content;
+    element.className = className;
+    return element;
+}
+
+// Funzione per aggiungere un titolo e una lista al container
+function addSection(title, list) {
+    const container = document.getElementById('placecard-container');
+    container.appendChild(createElement(title, 'section-title'));
+    list.forEach(item => {
+        container.appendChild(createElement(item, 'placecard'));
+    });
+}
+
+// 1. Lista dei nomi in maiuscolo
+const uppercaseNames = students.map(student => student.name.toUpperCase());
+addSection('Nomi degli studenti in maiuscolo:', uppercaseNames);
+
+// 2. Lista degli studenti con voti superiori a 70
+const highGradeStudents = students.filter(student => student.grades > 70)
+    .map(student => `${student.name} - Grades: ${student.grades}`);
+addSection('Studenti con voti superiori a 70:', highGradeStudents);
+
+// 3. Lista degli studenti con voti superiori a 70 e id superiore a 120
+const highGradeHighIdStudents = students.filter(student => student.grades > 70 && student.id > 120)
+    .map(student => `${student.name} - ID: ${student.id}, Grades: ${student.grades}`);
+addSection('Studenti con voti superiori a 70 e ID superiore a 120:', highGradeHighIdStudents);
+
+// Aggiunta di stili per i nuovi elementi
+const additionalStyle = document.createElement('style');
+additionalStyle.textContent = `
+    .section-title {
+        width: 100%;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+`;
+document.head.appendChild(additionalStyle);
+
+/*------------------------------------------------------------------------------------------*/
+
 
