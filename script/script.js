@@ -151,5 +151,3 @@ additionalStyle.textContent = `
 document.head.appendChild(additionalStyle);
 
 /*------------------------------------------------------------------------------------------*/
-
-

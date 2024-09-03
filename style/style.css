@@ -5,6 +5,88 @@
     box-sizing: border-box;
 }
 
+/* Stili per l'header */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    padding: 25px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-text {
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.header-text a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-text a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #64ffda;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.header-text a:hover::after {
+    transform: scaleX(1);
+}
+
+.header-text a:hover {
+    color: #00bfa5;
+}
+
+.header-text i {
+    margin-right: 8px;
+    font-size: 1.4em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.header-text a:hover i {
+    transform: rotate(360deg) scale(1.1);
+}
+
 /* Stili per il corpo e il contenitore principale */
 body {
     display: flex;
@@ -147,6 +229,18 @@ footer a:hover .github-icon {
 
 /* Media query per dispositivi mobili */
 @media (max-width: 600px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+    }
+
+    .header-text {
+        margin: 8px 0;
+    }
+
     footer {
         padding: 20px 0;
     }
