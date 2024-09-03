@@ -96,6 +96,10 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    padding-bottom: 100px;
+    /* Spazio sotto il contenuto principale per il footer */
+    padding-top: 100px;
+    /* Spazio sopra il contenuto principale per l'header */
 }
 
 #placecard-container {
